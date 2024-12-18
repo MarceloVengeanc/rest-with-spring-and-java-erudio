@@ -12,6 +12,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import org.mockito.MockitoAnnotations;
@@ -62,15 +63,14 @@ class PersonServicesTest {
 
     @Test
     void create() {
-        Person entity = input.mockEntity(1);
 
-        Person persisted = entity;
+        Person persisted = input.mockEntity(1);
         persisted.setId(1L);
 
         PersonVO vo = input.mockVO(1);
         vo.setKey(1L);
 
-        when(repository.save(entity)).thenReturn(persisted);
+        when(repository.save(any(Person.class))).thenReturn(persisted);
 
         var result = services.create(vo);
 
