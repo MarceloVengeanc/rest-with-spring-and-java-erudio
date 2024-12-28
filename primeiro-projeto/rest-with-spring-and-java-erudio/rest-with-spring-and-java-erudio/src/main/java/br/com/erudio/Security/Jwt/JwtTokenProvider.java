@@ -1,4 +1,4 @@
-package br.com.erudio.SecurityJwt;
+package br.com.erudio.Security.Jwt;
 
 import br.com.erudio.Data.VO.V1.Security.TokenVO;
 import br.com.erudio.Exceptions.InvalidJwtAuthenticationException;
@@ -16,7 +16,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.testcontainers.shaded.org.bouncycastle.math.ec.rfc8032.Ed25519;
 
 import java.util.Base64;
 import java.util.Date;
