@@ -1,3 +1,3 @@
 ﻿INSERT INTO `users` (`user_name`, `full_name`, `password`, `account_non_expired`, `account_non_locked`, `credentials_non_expired`, `enabled`) VALUES
-	('marcelo', 'Marcelo Serrano', '19bbf735b27066f2f145e602624e1b24a3fbc54cd5dfd3143fc5feea6bdee9e139ca7332d4806b9f', b'1', b'1', b'1', b'1'),
-	('flavio', 'Flavio Costa', '75ec349c1b0ef4ee7b249d0b83ae4861853f3aa77bce8c4b15f28cd43c6424ab4f29df431831bb0d', b'1', b'1', b'1', b'1');
+	('marcelo', 'Marcelo Serrano', 'daf9c3e142d646a34e684d24c0ec7c4d5577be9cee72cc763ee03791d650e5474f75985acd7879bc', b'1', b'1', b'1', b'1'),
+	('teste', 'Teste Spring', 'db3fab9a22767aadd2703cfd339a24185d1547f755f1df2f1b8888f6fd0487d2c233df198b1ff052', b'1', b'1', b'1', b'1');

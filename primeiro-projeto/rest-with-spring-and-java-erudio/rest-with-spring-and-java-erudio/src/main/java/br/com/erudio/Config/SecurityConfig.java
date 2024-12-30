@@ -3,8 +3,6 @@ package br.com.erudio.Config;
 import java.util.HashMap;
 import java.util.Map;
 
-import br.com.erudio.Security.Jwt.JwtTokenFilter;
-import br.com.erudio.Security.Jwt.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +18,8 @@ import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder.Secret
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import br.com.erudio.Security.Jwt.JwtTokenFilter;
+import br.com.erudio.Security.Jwt.JwtTokenProvider;
 
 @EnableWebSecurity
 @Configuration
