@@ -2,11 +2,12 @@ package br.com.erudio.IntegrationTests.TestContainers.VO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serializable;
 import java.util.Objects;
-
+@XmlRootElement
 public class PersonVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -18,6 +19,14 @@ public class PersonVO implements Serializable {
     private String gender;
 
     public PersonVO() {
+    }
+
+    public PersonVO(Long id, String firstName, String lastName, String address, String gender) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.gender = gender;
     }
 
     public Long getId() {

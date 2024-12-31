@@ -1,8 +1,10 @@
-package br.com.erudio.Data.VO.V1.Security;
+package br.com.erudio.IntegrationTests.TestContainers.VO;
+
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.io.Serializable;
 import java.util.Objects;
-
+@XmlRootElement
 public class AccountCredentialsVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
