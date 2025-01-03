@@ -248,9 +248,9 @@ public class BookControllerYamlTest extends AbstractIntegrationTest {
         assertNotNull(foundBookFive.getAuthor());
         assertNotNull(foundBookFive.getPrice());
         assertTrue(foundBookFive.getId() > 0);
-        assertEquals("Docker Deep Dive", foundBookFive.getTitle());
-        assertEquals("Nigel Poulton", foundBookFive.getAuthor());
-        assertEquals(55.99, foundBookFive.getPrice());
+        assertEquals("Domain Driven Design", foundBookFive.getTitle());
+        assertEquals("Eric Evans", foundBookFive.getAuthor());
+        assertEquals(92.00, foundBookFive.getPrice());
     }
 
     @Test
