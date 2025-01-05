@@ -65,13 +65,11 @@ public class FileController {
             logger.info("Could not determine file type!");
         }
 
-        if (contentType.isBlank()) contentType = "application/octet-stream";
+        contentType = contentType.isBlank() ? "application/octet-stream" : contentType;
 
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(contentType))
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename= \"" + resource.getFilename() + "\"")
                 .body(resource);
     }
-
-
 }
