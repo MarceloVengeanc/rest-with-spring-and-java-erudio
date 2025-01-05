@@ -28,11 +28,10 @@ jobs:
     - name: Build Application JAR
       working-directory: ./primeiro-projeto/rest-with-spring-and-java-erudio/rest-with-spring-and-java-erudio
       run: mvn clean package -DskipTests
-
       
     - name: Docker Compose Build
       working-directory: ./primeiro-projeto/rest-with-spring-and-java-erudio
-      run: docker compose build
+      run: docker compose -f docker-compose.yml build
 
     - name: Push to Docker Hub Container Registry
       run: |
