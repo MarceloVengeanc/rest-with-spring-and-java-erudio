@@ -28,6 +28,7 @@ public class Startup {
 		 DelegatingPasswordEncoder passwordEncoder = new DelegatingPasswordEncoder("pbkdf2", encoders);
 		 passwordEncoder.setDefaultPasswordEncoderForMatches(pbkdf2Encoder);
 
+		 criar nova senha encriptada
 		 String result1 = passwordEncoder.encode("coffe123");
 		 String result2 = passwordEncoder.encode("admin234");
 		 System.out.println("My hash result1 " + result1);
