@@ -1,7 +1,7 @@
 server:
   port: 80
 cors:
-  originPatterns: http://localhost:3000,http://localhost:8080,https://erudio.com.br
+  originPatterns: http://localhost:3000,http://localhost:8080,https://erudio.com.br,http://localhost:4200
 file:
   upload-dir: /dev/UploadDownload
 security:

@@ -25,6 +25,7 @@ public class WebConfig implements WebMvcConfigurer{
         converters.add(new YamlJackson2HttpMessageConverter());
     }
 
+    /*
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         var allowedOrigins = corsOriginPatterns.split(",");
@@ -34,6 +35,8 @@ public class WebConfig implements WebMvcConfigurer{
                 .allowedOrigins(allowedOrigins)
                 .allowCredentials(true);
     }
+
+     */
 
     @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {

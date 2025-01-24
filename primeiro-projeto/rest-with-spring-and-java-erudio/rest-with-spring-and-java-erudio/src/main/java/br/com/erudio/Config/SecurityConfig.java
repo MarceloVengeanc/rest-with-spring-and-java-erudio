@@ -70,7 +70,7 @@ public class SecurityConfig {
                                 .requestMatchers("/api/**").authenticated()
                                 .requestMatchers("/users").denyAll()
                 )
-                .cors(cors -> {})
+                //.cors(cors -> {})
                 .build();
         //@formatter:on
     }
