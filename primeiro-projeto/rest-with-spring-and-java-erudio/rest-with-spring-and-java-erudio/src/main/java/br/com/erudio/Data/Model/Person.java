@@ -1,5 +1,7 @@
 package br.com.erudio.Data.Model;
 
+import br.com.erudio.Data.VO.V1.PersonVO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -92,5 +94,11 @@ public class Person implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(id, firstName, lastName, address, gender, enabled);
+    }
+
+    @JsonIgnore
+    public Person disablePerson() {
+        this.enabled = false;
+        return this;
     }
 }
