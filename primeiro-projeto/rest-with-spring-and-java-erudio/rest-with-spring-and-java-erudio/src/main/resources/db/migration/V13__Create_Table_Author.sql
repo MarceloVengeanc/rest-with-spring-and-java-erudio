@@ -1,0 +1,7 @@
+CREATE TABLE author (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(150) NOT NULL,
+    nationality VARCHAR(80) NOT NULL,
+    gender VARCHAR(9) NOT NULL,
+    enabled BOOLEAN NOT NULL
+);

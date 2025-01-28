@@ -202,10 +202,12 @@ public class PersonController {
     }
 
     @GetMapping("/all")
-    @Operation(summary = "Deletes a Person",
-            description = "Deletes a Person by passing in a JSON, XML or YML representation of the person!",
+    @Operation(summary = "Finds a Person", description = "Finds a Person",
             tags = {"People"},
             responses = {
+                    @ApiResponse(description = "Success", responseCode = "200",
+                            content = @Content(schema = @Schema(implementation = PersonVO.class))
+                    ),
                     @ApiResponse(description = "No Content", responseCode = "204", content = @Content),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
                     @ApiResponse(description = "Unauthorized", responseCode = "401", content = @Content),

@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "books")
@@ -26,6 +27,9 @@ public class Book implements Serializable {
     private BigDecimal price;
 
     private String title;
+
+    @OneToMany
+    private List<BookAuthor> authors;
 
     public Book() {
     }

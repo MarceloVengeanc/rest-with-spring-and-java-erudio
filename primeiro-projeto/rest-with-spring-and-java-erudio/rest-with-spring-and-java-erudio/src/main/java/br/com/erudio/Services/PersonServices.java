@@ -122,7 +122,7 @@ public class PersonServices {
 
         logger.info("Disabling one person!");
 
-       // repository.disablePerson(id);
+        // repository.disablePerson(id);
 
         var entity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
@@ -143,7 +143,7 @@ public class PersonServices {
         repository.delete(entity);
     }
 
-    public List<Person> getAllPerson(){
+    public List<Person> getAllPerson() {
         return repository.findAll();
     }
 }

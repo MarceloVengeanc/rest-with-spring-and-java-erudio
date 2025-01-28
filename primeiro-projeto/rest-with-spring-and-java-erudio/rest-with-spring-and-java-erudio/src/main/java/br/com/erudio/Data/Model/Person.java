@@ -10,7 +10,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "person")
-public class Person implements Serializable {
+public class Person implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -27,7 +27,7 @@ public class Person implements Serializable {
     @Column(nullable = false, length = 100)
     private String address;
 
-    @Column(nullable = false, length = 6)
+    @Column(nullable = false, length = 9)
     private String gender;
 
     @Column(nullable = false)
