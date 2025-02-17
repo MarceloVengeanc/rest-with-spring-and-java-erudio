@@ -216,4 +216,9 @@ public class PersonController {
     public List<Person> getAllPerson() {
         return service.getAllPerson();
     }
+
+    @GetMapping("/author")
+    public List<Person> filtrarPorAuthor(@RequestParam Boolean autor){
+        return service.getAllAuthor(autor);
+    }
 }

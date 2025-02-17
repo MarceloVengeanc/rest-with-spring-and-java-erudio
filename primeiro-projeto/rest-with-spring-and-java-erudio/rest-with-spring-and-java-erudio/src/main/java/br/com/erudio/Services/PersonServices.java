@@ -3,8 +3,10 @@ package br.com.erudio.Services;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +29,8 @@ import jakarta.transaction.Transactional;
 public class PersonServices {
 
     private Logger logger = Logger.getLogger(PersonServices.class.getName());
+
+    private final List<Person> pessoas = new ArrayList<>();
 
     @Autowired
     PersonRepository repository;
@@ -111,6 +115,7 @@ public class PersonServices {
         entity.setLastName(person.getLastName());
         entity.setAddress(person.getAddress());
         entity.setGender(person.getGender());
+        entity.setAuthor(person.getAuthor());
 
         var vo = DozerMapper.parseObject(repository.save(entity), PersonVO.class);
         vo.add(linkTo(methodOn(PersonController.class).findById(vo.getKey())).withSelfRel());
@@ -145,5 +150,10 @@ public class PersonServices {
 
     public List<Person> getAllPerson(){
         return repository.findAll();
+    }
+    public List<Person> getAllAuthor(Boolean autor){
+            return pessoas.stream()
+                    .filter(p -> p.getAuthor() == true)
+                    .collect(Collectors.toList());
     }
 }
