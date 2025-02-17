@@ -33,7 +33,18 @@ public class Person implements Serializable {
     @Column(nullable = false)
     private Boolean enabled;
 
+    @Column
+    private Boolean author;
+
     public Person() {
+    }
+
+    public Boolean getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Boolean author) {
+        this.author = author;
     }
 
     public Long getId() {
@@ -88,12 +99,12 @@ public class Person implements Serializable {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return Objects.equals(id, person.id) && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(address, person.address) && Objects.equals(gender, person.gender) && Objects.equals(enabled, person.enabled);
+        return Objects.equals(id, person.id) && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(address, person.address) && Objects.equals(gender, person.gender) && Objects.equals(enabled, person.enabled) && Objects.equals(author, person.author);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, address, gender, enabled);
+        return Objects.hash(id, firstName, lastName, address, gender, enabled, author);
     }
 
     @JsonIgnore
