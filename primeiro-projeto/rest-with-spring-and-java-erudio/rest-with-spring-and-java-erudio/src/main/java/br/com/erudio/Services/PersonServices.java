@@ -152,7 +152,8 @@ public class PersonServices {
         return repository.findAll();
     }
     public List<Person> getAllAuthor(Boolean autor){
-            return pessoas.stream()
+        var pessoasLista = repository.findAll();
+            return pessoasLista.stream()
                     .filter(p -> p.getAuthor() == true)
                     .collect(Collectors.toList());
     }
