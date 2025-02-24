@@ -1,12 +1,12 @@
 package br.com.erudio.Services;
 
+import static br.com.erudio.Specification.PersonSpecification.*;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -29,8 +29,6 @@ import jakarta.transaction.Transactional;
 public class PersonServices {
 
     private Logger logger = Logger.getLogger(PersonServices.class.getName());
-
-    private final List<Person> pessoas = new ArrayList<>();
 
     @Autowired
     PersonRepository repository;
@@ -127,7 +125,7 @@ public class PersonServices {
 
         logger.info("Disabling one person!");
 
-       // repository.disablePerson(id);
+        // repository.disablePerson(id);
 
         var entity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
@@ -148,13 +146,15 @@ public class PersonServices {
         repository.delete(entity);
     }
 
-    public List<Person> getAllPerson(){
-        return repository.findAll();
+    public List<Person> getAllPerson() {
+        return repository.findAll(todasPessoasAtivas());
     }
-    public List<Person> getAllAuthor(Boolean autor){
-        var pessoasLista = repository.findAll();
-            return pessoasLista.stream()
-                    .filter(p -> p.getAuthor() == true)
-                    .collect(Collectors.toList());
+
+    public List<Person> getAllClients() {
+        return repository.findAll(clientesAtivos());
+    }
+
+    public List<Person> getAllAuthor() {
+        return repository.findAll(autoresAtivos());
     }
 }
