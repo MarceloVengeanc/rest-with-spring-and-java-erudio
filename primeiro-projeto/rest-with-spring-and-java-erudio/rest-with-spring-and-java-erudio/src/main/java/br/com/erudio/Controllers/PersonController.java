@@ -68,11 +68,11 @@ public class PersonController {
         var sortDirection = "desc".equalsIgnoreCase(direction)
                 ? Direction.DESC : Direction.ASC;
 
-        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, "firstName"));
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, "name"));
         return ResponseEntity.ok(service.findAll(pageable));
     }
 
-    @GetMapping(value = "/findPersonByName/{firstName}",
+    @GetMapping(value = "/findPersonByName/{name}",
             produces = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML})
     @Operation(summary = "Finds People by Name", description = "Finds People by Name",
             tags = {"People"},
@@ -91,7 +91,7 @@ public class PersonController {
             }
     )
     public ResponseEntity<PagedModel<EntityModel<PersonVO>>> findPersonByName(
-            @PathVariable(value = "firstName") String firstName,
+            @PathVariable(value = "name") String name,
             @RequestParam(value = "page", defaultValue = "0") Integer page,
             @RequestParam(value = "size", defaultValue = "12") Integer size,
             @RequestParam(value = "direction", defaultValue = "asc") String direction
@@ -100,8 +100,8 @@ public class PersonController {
         var sortDirection = "desc".equalsIgnoreCase(direction)
                 ? Direction.DESC : Direction.ASC;
 
-        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, "firstName"));
-        return ResponseEntity.ok(service.findPersonByName(firstName, pageable));
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, "name"));
+        return ResponseEntity.ok(service.findPersonByName(name, pageable));
     }
 
 

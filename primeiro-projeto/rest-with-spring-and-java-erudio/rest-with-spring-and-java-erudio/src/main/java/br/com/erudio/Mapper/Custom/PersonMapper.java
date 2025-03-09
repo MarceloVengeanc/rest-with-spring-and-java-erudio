@@ -14,8 +14,7 @@ public class PersonMapper {
         vo.setId(person.getId());
         vo.setAddress(person.getAddress());
         vo.setBirthDay(new Date());
-        vo.setFirstName(person.getFirstName());
-        vo.setLastName(person.getLastName());
+        vo.setFirstName(person.getName());
         vo.setGender(person.getGender());
         return vo;
     }
@@ -25,8 +24,7 @@ public class PersonMapper {
         entity.setId(person.getId());
         entity.setAddress(person.getAddress());
         //entity.setBirthDay(new Date());
-        entity.setFirstName(person.getFirstName());
-        entity.setLastName(person.getLastName());
+        entity.setName(person.getFirstName());
         entity.setGender(person.getGender());
         return entity;
     }

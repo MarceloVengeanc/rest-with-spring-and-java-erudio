@@ -57,11 +57,11 @@ public class PersonServices {
         return assembler.toModel(personVosPage, link);
     }
 
-    public PagedModel<EntityModel<PersonVO>> findPersonByName(String firstname, Pageable pageable) {
+    public PagedModel<EntityModel<PersonVO>> findPersonByName(String name, Pageable pageable) {
 
         logger.info("Finding all people!");
 
-        var personPage = repository.findPersonsByName(firstname, pageable);
+        var personPage = repository.findPersonsByName(name, pageable);
 
         var personVosPage = personPage.map(p -> DozerMapper.parseObject(p, PersonVO.class));
         personVosPage.map(
@@ -109,8 +109,7 @@ public class PersonServices {
         var entity = repository.findById(person.getKey())
                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
 
-        entity.setFirstName(person.getFirstName());
-        entity.setLastName(person.getLastName());
+        entity.setName(person.getName());
         entity.setAddress(person.getAddress());
         entity.setGender(person.getGender());
         entity.setAuthor(person.getAuthor());

@@ -18,11 +18,8 @@ public class Person implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "first_name", nullable = false, length = 80)
-    private String firstName;
-
-    @Column(name = "last_name", nullable = false, length = 80)
-    private String lastName;
+    @Column(name = "name", nullable = false, length = 255)
+    private String name;
 
     @Column(nullable = false, length = 100)
     private String address;
@@ -39,14 +36,6 @@ public class Person implements Serializable {
     public Person() {
     }
 
-    public Boolean getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Boolean author) {
-        this.author = author;
-    }
-
     public Long getId() {
         return id;
     }
@@ -55,20 +44,12 @@ public class Person implements Serializable {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
@@ -95,16 +76,24 @@ public class Person implements Serializable {
         this.enabled = enabled;
     }
 
+    public Boolean getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Boolean author) {
+        this.author = author;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return Objects.equals(id, person.id) && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(address, person.address) && Objects.equals(gender, person.gender) && Objects.equals(enabled, person.enabled) && Objects.equals(author, person.author);
+        return Objects.equals(id, person.id) && Objects.equals(name, person.name) && Objects.equals(address, person.address) && Objects.equals(gender, person.gender) && Objects.equals(enabled, person.enabled) && Objects.equals(author, person.author);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, address, gender, enabled, author);
+        return Objects.hash(id, name, address, gender, enabled, author);
     }
 
     @JsonIgnore

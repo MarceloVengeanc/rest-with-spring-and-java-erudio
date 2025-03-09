@@ -1,0 +1,1 @@
+ALTER TABLE person CHANGE COLUMN first_name name VARCHAR(255);
